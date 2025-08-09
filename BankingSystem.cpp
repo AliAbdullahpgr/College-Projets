@@ -6,7 +6,7 @@
 #include <vector>
 #include<conio.h>
 using namespace std;
-
+//This is a project of my 2nd semester OOP
 class Account {
 private:
     int account_no;
