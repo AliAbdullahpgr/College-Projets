@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Poll: {{ candidate_a }} vs {{ candidate_b }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Vote between two candidates</h1>
+
+      <div class="candidates">
+        <button id="btnA" class="vote-button" data-candidate="A">{{ candidate_a }}</button>
+        <span class="vs">vs</span>
+        <button id="btnB" class="vote-button" data-candidate="B">{{ candidate_b }}</button>
+      </div>
+
+      <p id="status" class="status"></p>
+
+      <div class="results">
+        <div class="result-row">
+          <div class="label">{{ candidate_a }}</div>
+          <div class="bar"><div id="barA" class="fill"></div></div>
+          <div id="countA" class="count">0</div>
+        </div>
+        <div class="result-row">
+          <div class="label">{{ candidate_b }}</div>
+          <div class="bar"><div id="barB" class="fill"></div></div>
+          <div id="countB" class="count">0</div>
+        </div>
+        <div class="total">Total votes: <span id="total">0</span></div>
+      </div>
+
+      <form id="resetForm" method="post" action="{{ url_for('reset') }}" class="reset">
+        <input type="password" name="secret" placeholder="Reset secret (optional)" />
+        <button type="submit">Reset votes</button>
+      </form>
+    </div>
+
+    <script>
+      window.APP_CONFIG = { names: { A: "{{ candidate_a }}", B: "{{ candidate_b }}" } };
+    </script>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+  </body>
+</html>

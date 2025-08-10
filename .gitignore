@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# SQLite DB
+poll.db
+
+# OS/editor
+.DS_Store
+.idea/
+.vscode/
